@@ -76,8 +76,8 @@ void Home_Page_Render(void)
 	if(latest_tx_frame.arm!=2000)OLED_ShowString(70, 0, "Locked", 8, 0);
 
 	if(latest_tx_frame.mode==1000)OLED_ShowString(70, 20, "Ang&Alt", 8, 0);
-	if(latest_tx_frame.mode==1500)OLED_ShowString(70, 20, "Horizon", 8, 0);
-	if(latest_tx_frame.mode==2000)OLED_ShowString(70, 20, "Acro", 8, 0);
+	if(latest_tx_frame.mode==1500)OLED_ShowString(70, 20, "Landing", 8, 0);
+	if(latest_tx_frame.mode==2000)OLED_ShowString(70, 20, "Angle", 8, 0);
 
 	sprintf(buf, "Bat:%d", Remote_Bat);
 	OLED_ShowString(70, 40, buf, 8, 0);
