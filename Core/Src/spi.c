@@ -45,7 +45,11 @@ void MX_SPI1_Init(void)
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  /* SSD1306 的 SCLK 周期最小 100ns（≈10MHz），PCLK2=72MHz 时：
+     /2 = 36MHz（严重超规格，屏幕可能花屏/偶发不亮）
+     /8 = 9MHz （规格内，整屏 1KB 刷新约 0.91ms，10ms 刷一帧完全够）
+     如果换长排线后出现花屏，继续降到 /16 = 4.5MHz。 */
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;

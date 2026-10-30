@@ -238,23 +238,10 @@ void TIM4_IRQHandler(void)
 void USART1_IRQHandler(void)
 {
   /* USER CODE BEGIN USART1_IRQn 0 */
-    if (__HAL_UART_GET_FLAG(&huart1, UART_FLAG_IDLE))
-    {
-        __HAL_UART_CLEAR_IDLEFLAG(&huart1);
-        
-        HAL_UART_DMAStop(&huart1);
-        
-        uint16_t recv_len = PROTOCOL_RX_FRAME_SIZE - __HAL_DMA_GET_COUNTER(&hdma_usart1_rx);
-			
-				uint16_t checksum_calc=Calculate_Checksum((uint8_t*)&Rx_Frame,22);
-        if (recv_len == PROTOCOL_RX_FRAME_SIZE && (Rx_Frame.head == PROTOCOL_FRAME_HEAD) && (Rx_Frame.checksum==checksum_calc))
-        {
-            osMessageQueuePut(RxFrameQueue, &Rx_Frame, 0, 0);
-        }
-
-        
-        HAL_UART_Receive_DMA(&huart1, (uint8_t*)&Rx_Frame, PROTOCOL_RX_FRAME_SIZE);
-    }
+  /* 接收由 HAL_UARTEx_ReceiveToIdle_DMA() 接管：IDLE 事件和 DMA 传输完成都由
+     HAL_UART_IRQHandler() 内部判定，然后回调 HAL_UARTEx_RxEventCallback()。
+     这里不要再调用 HAL_UART_DMAStop()：它会连同正在发送的 TX DMA 一起中止，
+     把当前这一帧从中间截断。 */
   /* USER CODE END USART1_IRQn 0 */
   HAL_UART_IRQHandler(&huart1);
   /* USER CODE BEGIN USART1_IRQn 1 */

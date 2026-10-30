@@ -405,6 +405,51 @@
               <FilePath>..\Core\Src\menu.c</FilePath>
             </File>
             <File>
+              <FileName>ui_anim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ui_anim.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui_core.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ui_core.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui_widgets.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ui_widgets.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui_icons.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ui_icons.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui_menu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ui_menu.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui_edit.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ui_edit.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui_info.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ui_info.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui_attitude.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ui_attitude.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui_home.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ui_home.c</FilePath>
+            </File>
+            <File>
               <FileName>key.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Core\Src\key.c</FilePath>

@@ -26,6 +26,7 @@ struct Menu_Item {
 };
 
 struct Menu {
+    const char* Title;
     Menu_Item_t* Items;
     uint8_t Item_Count;
     uint8_t Cursor;
@@ -39,8 +40,13 @@ extern Page_State_t Current_Page;
 void Menu_Init(void);
 void Menu_Task_Handler(void);
 void Menu_Enter(void);
-void Menu_Back(void);
 void Menu_Render(void);
 void Home_Page_Render(void);
+
+/* 是否有动画在跑：DisplayTask 用它切换帧率（动画中 62fps，静态 50fps） */
+uint8_t Menu_Is_Animating(void);
+
+/* 解锁被拒绝（油门没归零）：由 InputTask 调用，UI 弹提示框 */
+void Menu_Notify_ArmDenied(void);
 
 #endif
